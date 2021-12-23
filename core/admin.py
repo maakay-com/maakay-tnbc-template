@@ -7,7 +7,6 @@ from .models.scan_tracker import ScanTracker
 from .models.statistics import Statistic
 
 
-# Register your models here.
 admin.site.register(Transaction)
 admin.site.register(User)
 admin.site.register(ScanTracker)

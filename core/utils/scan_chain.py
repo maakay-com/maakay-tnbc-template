@@ -114,13 +114,7 @@ def match_transaction():
 
     for txs in confirmed_txs:
 
-        lower_case_memo = txs.memo.lower()
-
-        if lower_case_memo == "internal":
-            txs.transaction_status = Transaction.IDENTIFIED
-            txs.save()
-
-        elif ThenewbostonWallet.objects.filter(memo=txs.memo).exists():
+        if ThenewbostonWallet.objects.filter(memo=txs.memo).exists():
 
             wallet = ThenewbostonWallet.objects.get(memo=txs.memo)
             wallet.balance += txs.amount
